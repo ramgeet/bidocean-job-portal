@@ -15,7 +15,7 @@ include_once("classes/location.php");
 
 $loc = new location();			
 
-try {
+
   if(!isset($_GET['type']) || empty($_GET['type'])) {
   	throw new exception("Type is not set.");
   }
@@ -40,11 +40,7 @@ try {
   	 $data = $loc->getCities($stateId);
   }
 
-} catch (Exception $e) {
-   $data = array('status'=>'error', 'tp'=>0, 'msg'=>$e->getMessage());
-} finally {
   echo json_encode($data);
-}
 
 ob_flush();
 

@@ -1,11 +1,11 @@
 <?php
 class dbconfig {
   // database hostname 
-  protected static $host = "localhost";
+  protected static $host = "192.168.66.6";
   // database username
   protected static $username = "root";
   // database password
-  protected static $password = "sreelal";
+  protected static $password = "root";
   //database name
   protected static $dbname = "location";
 

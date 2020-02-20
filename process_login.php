@@ -28,7 +28,7 @@ $passd=$_POST['password'];
 $query=mysqli_query($db1,"select * from login where email='$email'");
 $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
-if(($result>0) && ( password_verify( $passd, $result['password'] ) ) ){
+if(($result>0) && (md5($passd) ) ){
     if($result['usertype']=="jobseeker")
     {
         session_start();

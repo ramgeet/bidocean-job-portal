@@ -26,46 +26,77 @@ if (isset($_POST['email'])){
     $count=mysqli_num_rows($result);
     // If the count is equal to one, we will send message other wise display an error message.
     $sentmail=0;
+
     if($count==1)
-    {
-        $rows=mysqli_fetch_array($result);
-        $pass  =  $rows['password'];//FETCHING PASS
-        //echo "your pass is ::".($pass)."";
+    {   $rows=mysqli_fetch_array($result);
         $to = $rows['email'];
+        $query="select * from jobseeker INNER JOIN login on jobseeker.log_id=login.log_id where login.email=$to";
+        $result   = mysqli_query($db1,$query);
+        $rows=mysqli_fetch_array($result);
+        $pass  =  md5($rows['phone']);//FETCHING PASS
+        $log_id = $rows['log_id'];
+        $query="UPDATE login set password=$pass where log_id=$log_id";
+        $result   = mysqli_query($db1,$query);
+        //echo "your pass is ::".($pass)."";
+       
         //echo "your email is ::".$email;
         //Details for send
         //ing E-mail
-        $from = "Job Portal";
-        $url = "http://www.jobportal.com/";
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+        $url = "https://";   
+   else  
+                $url = "http://";   
+        // Append the host(domain name, ip) to the URL.   
+        $url.= $_SERVER['HTTP_HOST'];   
+        
+        // Append the requested resource location to the URL   
+        $url.= $_SERVER['REQUEST_URI'];    
+            
+        $hostname=$url;
+        $url = $hostname;
         $body  =  "Your Password Recovery
 		-----------------------------------------------
 		Url : $url;
 		email Details is : $to;
 		Here is your password  : $pass;
 		Sincerely,
-		Coding Cyber";
-        $from = "help@jobportal.com";
-        $subject = "JobPortal Password recovered";
-        $headers1 = "From: $from\n";
-        $headers1 .= "Content-type: text/html;charset=iso-8859-1\r\n";
-        $headers1 .= "X-Priority: 1\r\n";
-        $headers1 .= "X-MSMail-Priority: High\r\n";
-        $headers1 .= "X-Mailer: Just My Server\r\n";
-        $sentmail = mail ( $to, $subject, $body, $headers1 );
+        Bidocean Team ";
+      
+$subject = "Password Recovery - Job Portal";
+
+
+$email_to = $to;
+$fromserver = "bidocean.jobportal@gmail.com"; 
+require("PHPMailer/PHPMailerAutoload.php");
+$mail = new PHPMailer();
+
+$mail->IsSMTP();
+//$mail->SMTPSecure = 'ssl';
+$mail->SMTPSecure = 'tls';
+$mail->Host = "smtp.gmail.com"; // Enter your host here
+$mail->SMTPAuth = true;
+$mail->Username = "bidocean.jobportal@gmail.com"; // Enter your email here
+$mail->Password = "Expand&Bido2020"; //Enter your password here
+$mail->Port       = 587;
+$mail->IsHTML(true);
+$mail->From = "bidocean.jobportal@gmail.com";
+$mail->FromName = "Bidocean Jobportal Team";
+$mail->Sender = $fromserver; // indicates ReturnPath header
+$mail->Subject = $subject;
+$mail->Body = $body;
+$mail->AddAddress($email_to);
+if(!$mail->Send()){
+    $sentmail==0;
+    if($_POST['email']!="")
+            echo "<span style='color: #ff0000;'> Cannot send password to your e-mail address.Problem with sending mail..d.$mail->ErrorInfo</span>";    
+}else{
+    $sentmail==1;
+    echo "<span style='color: #ff0000;'> Your Password Has Been Sent To Your Email Address.</span>";
+}
     } else {
         if ($_POST ['email'] != "") {
             echo '<span style="color: #ff0000;"> Not found your email in our database</span>';
 		}
-    }
-    //If the message is sent successfully, display success message otherwise display an error message.
-    if($sentmail==1)
-    {
-        echo "<span style='color: #ff0000;'> Your Password Has Been Sent To Your Email Address.</span>";
-    }
-    else
-    {
-        if($_POST['email']!="")
-            echo "<span style='color: #ff0000;'> Cannot send password to your e-mail address.Problem with sending mail...</span>";
     }
 }
 ?>

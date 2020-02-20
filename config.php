@@ -21,9 +21,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-$host = "localhost";
+$host = "192.168.66.6";
 $user  = "root";
-$password =  "sreelal";
+$password =  "root";
 $database1 = "jobportal";
 $database2 = "location";
 $db1 = new mysqli($host, $user, $password, $database1);

@@ -86,7 +86,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
              <div class="checkbox">
                  <label><input type="checkbox" value="remember-me"> Remember me </label>
-                         <a href="forget.php">/Forgot Password</a>
+                         <a href="forgotpass.php">/Forgot Password</a>
              </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>

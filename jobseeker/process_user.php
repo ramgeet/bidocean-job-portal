@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Sreelal
@@ -21,13 +22,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+
  include_once('../config.php');
+ 
 // Data retreived  begins here
 $email=$_POST['useremail'];
 //echo $email;
 $password=$_POST['pass1'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$hash = md5($password);
 //echo $password;
+
 $name=$_POST['uname'];
 $mobile=$_POST['mobno'];
 $experience=$_POST['experience'];
@@ -39,6 +43,7 @@ $stateid=$_POST['state'];
 $cityid=$_POST['city'];
 $location="";
 $type="jobseeker";
+
 // data retreived ends here
 
 // now wants to fetch data from location db
