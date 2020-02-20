@@ -30,9 +30,11 @@ if (isset($_POST['email'])){
     if($count==1)
     {   $rows=mysqli_fetch_array($result);
         $to = $rows['email'];
-        $query="select * from jobseeker INNER JOIN login on jobseeker.log_id=login.log_id where login.email=$to";
+        $query="select * from jobseeker INNER JOIN login on jobseeker.log_id=login.log_id where login.email='$to'";
+        echo $query;
         $result   = mysqli_query($db1,$query);
         $rows=mysqli_fetch_array($result);
+        $plain_pass=$rows['phone'];
         $pass  =  md5($rows['phone']);//FETCHING PASS
         $log_id = $rows['log_id'];
         $query="UPDATE login set password=$pass where log_id=$log_id";
@@ -58,7 +60,7 @@ if (isset($_POST['email'])){
 		-----------------------------------------------
 		Url : $url;
 		email Details is : $to;
-		Here is your password  : $pass;
+		Here is your password  : $plain_pass;
 		Sincerely,
         Bidocean Team ";
       
