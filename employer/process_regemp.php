@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 include_once('../config.php');
 $email=$_POST['email'];
 $password=$_POST['pass1'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$hash =md5($password);
 $name=$_POST['compname'];
 $type=$_POST['comtype'];
 //echo $type;
@@ -66,6 +66,6 @@ if (!mysqli_query($db1,$query5))
     echo("Error description: " . mysqli_error($db1));
 }
 else{
-    header('location:login.php?msg=registered');
+    header('login.php?msg=registered');
 }
 ?>

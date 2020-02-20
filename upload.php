@@ -19,7 +19,7 @@ if (isset($_POST['submit']))
 }
 
 function upload_image(){
-
+    
     $filename = $_FILES["file"]["name"];
     $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
     $file_ext = substr($filename, strripos($filename, '.')); // get file name
@@ -29,10 +29,12 @@ function upload_image(){
     if (in_array($file_ext,$allowed_file_types) && ($filesize < 200000))
     {
         // Rename file
+        
         $newfilename = $_SESSION['jsname'].$_SESSION['jsid'] . $file_ext;
-        if (file_exists("uploads/images/" . $newfilename))
+        if (!file_exists("uploads/images/" . $newfilename))
         {
             // file already exists error
+            
             unlink("uploads/images/".$newfilename);
     
             $imageInformation = getimagesize($_FILES['file']['tmp_name']);
@@ -41,16 +43,17 @@ function upload_image(){
             $imageWidth = $imageInformation[0]; //Contains the Width of the Image
 
             $imageHeight = $imageInformation[1]; //Contains the Height of the Image
-
+            echo "test";
             if ($imageWidth <= 700 && $imageHeight <= 700) {
 
-
+                echo "test";
                 move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/images/" . $newfilename);
                 mysqli_select_db($GLOBALS['db1'], "jobportal");
                 $cmd = mysqli_query($GLOBALS['db1'], "update jobseeker set photo= '$newfilename' WHERE user_id=$_SESSION[jsid]");
                 if (!$cmd) {
                     echo("Error description: " . mysqli_error($db1));
                 } else {
+                    
                     //echo "File uploaded succesfully ; <a href='jobseeker/profile.php'> Go back to profile </a>";
                     header('location:jobseeker/profile.php?msg=suc-img');
                 }
