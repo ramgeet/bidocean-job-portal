@@ -38,18 +38,18 @@ $countryid=$_POST['country'];
 $stateid=$_POST['state'];
 $cityid=$_POST['city'];
 
-mysqli_select_db($db2,"location");
+mysqli_select_db($db1,"location");
 
-$query1=mysqli_query($db2,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
+$query1=mysqli_query($db1,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query1);
 $country= $row['name'];
 
-$query2=mysqli_query($db2,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
+$query2=mysqli_query($db1,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query2);
 $state= $row['name'];
 //echo $state;
 
-$query3=mysqli_query($db2,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
+$query3=mysqli_query($db1,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query3);
 $city= $row['name'];
 

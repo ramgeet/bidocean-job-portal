@@ -48,23 +48,23 @@ $type="jobseeker";
 
 // now wants to fetch data from location db
 
-mysqli_select_db($db2,"location");
-$query1=mysqli_query($db2,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
+mysqli_select_db($db1,"location");
+$query1=mysqli_query($db1,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query1);
 $country= $row['name'];
 
-$query2=mysqli_query($db2,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
+$query2=mysqli_query($db1,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query2);
 $state= $row['name'];
 //echo $state;
 
-$query3=mysqli_query($db2,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
+$query3=mysqli_query($db1,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query3);
 $city= $row['name'];
 //echo $city;
 $location=$country.",".$state.",".$city;
 //echo $location;
-mysqli_close($db2);
+mysqli_close($db1);
 mysqli_select_db($db1,"jobportal");
 
 $query4="INSERT INTO login (email,password,usertype,status) VALUES ('$email','$hash','$type',1)";

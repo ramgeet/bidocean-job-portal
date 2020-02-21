@@ -40,22 +40,22 @@ $pg=$_POST['pgcourse'];
 $profile=$_POST['profile'];
 $date=date('d-m-y');
 $pay=$money." ".$salary;
-mysqli_select_db($db2,"location");
-$query1=mysqli_query($db2,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
+mysqli_select_db($db1,"location");
+$query1=mysqli_query($db1,"select name from countries WHERE id = '$countryid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query1);
 $country= $row['name'];
 
-$query2=mysqli_query($db2,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
+$query2=mysqli_query($db1,"select name from states WHERE id = '$stateid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query2);
 $state= $row['name'];
 //echo $state;
 
-$query3=mysqli_query($db2,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
+$query3=mysqli_query($db1,"select name from cities WHERE id = '$cityid'")  or die("Wrong Query");
 $row = mysqli_fetch_assoc($query3);
 $city= $row['name'];
 
 $location=$country.",".$state.",".$city;
-mysqli_close($db2);
+mysqli_close($db1);
 mysqli_select_db($db1,"jobportal");
 
 $query4="insert into jobs (eid,title,jobdesc,vacno,experience,basicpay,fnarea,location,industry,ugqual,pgqual,profile,postdate )VALUES ('$eid','$desig','$desc','$vacno','$exp','$pay','$fnarea','$location','$indtype','$ug','$pg','$profile','$date')";

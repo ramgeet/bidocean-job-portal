@@ -7,7 +7,7 @@ class dbconfig {
   // database password
   protected static $password = "root";
   //database name
-  protected static $dbname = "location";
+  protected static $dbname = "jobportal";
 
   static $con;
 
