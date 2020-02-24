@@ -1,1 +1,1 @@
-{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"C:/Users/Ajit/Desktop/Proj/Online-Job-Portal","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"/home/bid/Desktop/ram_workspace/bidocean-job-portal","disabled":false,"__vagrantfile":true}}}

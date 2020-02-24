@@ -96,23 +96,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!--- -------------------------------------------------------------------------------------------------- -->
     <body id="indexbody" data-spy="scroll" data-target=".navbar" data-offset="60">
 <div class="bmsTop">
-    <ul>
-        <li style="font-size: 15px; font-weight: bold">Top Recruiters:</li>
-        <li><a href="#" target="_blank">
-                <img src="images/1.gif" border="0">
-            </a></li>
-        <li><a href="#" target="_blank">
-                <img src="images/2.gif" border="0">
-            </a></li>
-        <li><a href="#" target="_blank">
-                <img src="images/3.gif" border="0"></a>
-        </li>
-        <li><a href="#" target="_blank">
-                <img src="images/4.gif" border="0"></a></li>
-        <li><a href="#" target="_blank">
-                <img src="images/5.gif" border="0"></a>
-        </li>
-    </ul>
+   
 </div>
 
 <div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
@@ -136,7 +120,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <h4>Register in this website for a better experience</h4>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h1>Employers</h1>
@@ -146,12 +130,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         Find the right candidates easily and quickly through our Search feature.</p>
                 </div>
                 <div class="panel-footer">
-                    <h3>$0</h3>
+                  <!--  <h3>$0</h3>  -->
                    <a href="employer/register_emp.php" style="color: inherit"> <button class="btn btn-lg">Sign Up</button></a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h1>Job Seekers</h1>
@@ -161,12 +145,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         Apply to jobs in just one click. Apply to thousands of jobs posted daily.</p>
                 </div>
                 <div class="panel-footer">
-                    <h3>$0</h3>
+                  <!--  <h3>$0</h3>   -->
                     <a href="jobseeker/register_user.php" style="color: inherit"><button class="btn btn-lg">Sign Up</button></a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+      <!-- <div class="col-sm-4">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h1>Premium</h1>
@@ -176,12 +160,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         Better Support</p>
                 </div>
                 <div class="panel-footer">
-                    <h3>$4</h3>
+          <h3>$4</h3> 
                     <h4>per month</h4>
                     <button class="btn btn-lg disabled">Upgrade</button>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -193,11 +177,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <div class="row">
             <div class="col-sm-5">
                 <p>Contact us and we'll get back to you within 24 hours.</p>
-                <p><span class="glyphicon glyphicon-map-marker"></span> Kozhikode, India</p>
-                <p><span class="glyphicon glyphicon-phone"></span> +91 8943 202726</p>
-                <p><span class="glyphicon glyphicon-envelope"></span> info@jobportal.com</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Bid Ocean</p>
+                <p><span class="glyphicon glyphicon-phone"></span>    Amdo Golai, Deorali Bazar, Gangtok, Sikkim 737102</p>
+                <p><span class="glyphicon glyphicon-phone"></span> 089678 29791</p>
             </div>
 
+         
             <div class="col-sm-7">
                 <div class="row">
                     <div class="col-sm-6 form-group">
@@ -224,9 +209,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <div id="googleMap" style="height:400px;width:100%;"></div>
 
 <!-- Add Google Maps -->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC72beuidVCmsgYsCapGqs_hj9N47QXfHA&callback=initMap"
+  type="text/javascript"></script>
 <script>
-    var myCenter = new google.maps.LatLng(11.2680519,75.7891479);
+
+
+    var myCenter = new google.maps.LatLng(27.321652249670205,88.58776063371579);
 
     function initialize() {
         var mapProp = {

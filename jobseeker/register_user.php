@@ -49,7 +49,7 @@ alert("Fill in with correct information");
                     <a class="navbar-brand" href="../index.php">Job Portal</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Jobseeker Registraation</a></li>
+                    <li class="active"><a href="#">Jobseeker Registration</a></li>
 
                </ul>
                 <ul class="nav navbar-nav navbar-right">

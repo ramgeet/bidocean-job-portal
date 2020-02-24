@@ -24,11 +24,15 @@ class location extends dbconfig {
        $result = dbconfig::run($query);
        if(!$result) {
          throw new exception("Country not found.");
+         
        }
        $res = array();
        while($resultSet = mysqli_fetch_assoc($result)) {
         $res[$resultSet['id']] = $resultSet['name'];
+        
+
        }
+       
        $data = array('status'=>'success', 'tp'=>1, 'msg'=>"Countries fetched successfully.", 'result'=>$res);
       
      

@@ -15,13 +15,14 @@ include_once("classes/location.php");
 
 $loc = new location();			
 
-
   if(!isset($_GET['type']) || empty($_GET['type'])) {
   	throw new exception("Type is not set.");
   }
   $type = $_GET['type'];
   if($type=='getCountries') {
-  	$data = $loc->getCountries();
+
+    $data = $loc->getCountries();
+    
   } 
 
   if($type=='getStates') {
